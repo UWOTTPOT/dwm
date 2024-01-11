@@ -6,6 +6,8 @@ j4-dmenu-desktop
 
 ttf-jetbrains-mono-nerd
 
+ttf-font-awesome
+
 alacritty
 
 picom
