@@ -6,8 +6,8 @@ static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = "JetBrainsMono Nerd Font:size=12";
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=12";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
+static const char dmenufont[]       = { "JetBrainsMono Nerd Font:size=12" };
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "net-runelite-launcher-Launcher",	  NULL,		 "RuneLite",		  0,			1,			 -1 },
 };
 
 /* layout(s) */
@@ -68,11 +69,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "sh", "-c", "$HOME/dwm/dmenu/desktopscript.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *browsercmd[] = { "thorium-browser", NULL };
+static const char *browsercmd[] = { "firefox", NULL };
 static const char *filemancmd[] = { "pcmanfm", NULL };
 static const char *playerctlplaypause[] = { "playerctl", "play-pause", NULL };
 static const char *playerctlnext[] = { "playerctl", "next", NULL };
 static const char *playerctlprev[] = { "playerctl", "previous", NULL };
+static const char *flameshot[] = { "flameshot", "gui", NULL };
+static const char *weather[] = { "alacritty","--hold", "-e", "curl", "wttr.in/Milton+Keynes", NULL };
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -88,13 +91,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_Tab,    spawn,          {.v = flameshot } },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	/*{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },*/
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
@@ -119,6 +122,7 @@ static const Key keys[] = {
 	{ 0,							0x1008ff16, spawn,	       {.v = playerctlprev } },
 	{ 0,							0x1008ff14, spawn,	       {.v = playerctlplaypause } },
 	{ 0,							0x1008ff17, spawn,	       {.v = playerctlnext } },	
+	{ MODKEY|ShiftMask,				XK_w,	   spawn,		   {.v = weather } }, 
 };
 
 /* button definitions */
