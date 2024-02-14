@@ -6,13 +6,13 @@ static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
-static const char dmenufont[]       = { "JetBrainsMono Nerd Font:size=12" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=11" };
+static const char dmenufont[]       = { "JetBrainsMono Nerd Font:size=11" };
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#374dad";
+static const char col_cyan[]        = "#196573";
 static const unsigned int baralpha	= 255;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -45,7 +45,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -75,7 +75,7 @@ static const char *playerctlplaypause[] = { "playerctl", "play-pause", NULL };
 static const char *playerctlnext[] = { "playerctl", "next", NULL };
 static const char *playerctlprev[] = { "playerctl", "previous", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
-static const char *weather[] = { "alacritty","--hold", "-e", "curl", "wttr.in/Milton+Keynes", NULL };
+static const char *weather[] = { "alacritty","--hold", "-e", "curl", "wttr.in/Milton%20Keynes", NULL };
 
 #include "movestack.c"
 static const Key keys[] = {
