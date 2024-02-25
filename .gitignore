@@ -3,3 +3,4 @@
 /dwm/dwm
 /slstatus/slstatus
 *.o
+/dwm/.cache
