@@ -19,3 +19,6 @@ pcmanfm
 flameshot
 
 playerctl
+
+
+an autostart script can be added to ~/.dwm
