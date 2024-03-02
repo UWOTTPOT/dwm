@@ -6,14 +6,14 @@ static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=11" };
-static const char dmenufont[]       = { "JetBrainsMono Nerd Font:size=11" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
+static const char dmenufont[]       = { "JetBrainsMono Nerd Font:size=12" };
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#196573";
-static const unsigned int baralpha	= 255;
+static const char col_cyan[]        = "#22ba91";
+static const unsigned int baralpha	= 220;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -38,14 +38,15 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "net-runelite-launcher-Launcher",	  NULL,		 "RuneLite",		  0,			1,			 -1 },
+	{ "net-runelite-launcher-Launcher", NULL, "RuneLite",	0,	1,	-1 },
+	{ "steam_proton", NULL,	 "MUT",	      1 << 7,	    1,		 0 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -76,6 +77,7 @@ static const char *playerctlnext[] = { "playerctl", "next", NULL };
 static const char *playerctlprev[] = { "playerctl", "previous", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
 static const char *weather[] = { "alacritty","--hold", "-e", "curl", "wttr.in/Milton%20Keynes", NULL };
+static const char *mut[] = { "sh", "-c", "$HOME/Desktop/MUT/mut.sh", NULL }; 
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -116,13 +118,14 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask, 			XK_r,      quit,           {1} },
-	{ MODKEY,						XK_w,	   spawn,		   {.v = browsercmd } },
-	{ MODKEY,						XK_e,	   spawn,		   {.v = filemancmd } },
-	{ 0,							0x1008ff16, spawn,	       {.v = playerctlprev } },
-	{ 0,							0x1008ff14, spawn,	       {.v = playerctlplaypause } },
-	{ 0,							0x1008ff17, spawn,	       {.v = playerctlnext } },	
-	{ MODKEY|ShiftMask,				XK_w,	   spawn,		   {.v = weather } }, 
+	{ MODKEY|ControlMask, 		XK_r,      quit,           {1} },
+	{ MODKEY,			XK_w,	   spawn,	   {.v = browsercmd } },
+	{ MODKEY,			XK_e,	   spawn,	   {.v = filemancmd } },
+	{ 0,				0x1008ff16, spawn,	   {.v = playerctlprev } },
+	{ 0,				0x1008ff14, spawn,	   {.v = playerctlplaypause } },
+	{ 0,				0x1008ff17, spawn,	   {.v = playerctlnext } },	
+	{ MODKEY|ShiftMask,		XK_w,	   spawn,	   {.v = weather } }, 
+	{ MODKEY|ControlMask,		XK_m,	   spawn,	   {.v = mut } },
 };
 
 /* button definitions */
