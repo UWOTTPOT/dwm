@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 2; /* border pixel of windows */
-static const unsigned int gappx = 6;    /* gaps between windows */
+static const unsigned int borderpx = 3; /* border pixel of windows */
+static const unsigned int gappx = 3;    /* gaps between windows */
 static const unsigned int snap = 10;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
@@ -12,7 +12,7 @@ static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#444444";
 static const char col_gray3[] = "#bbbbbb";
 static const char col_gray4[] = "#eeeeee";
-static const char col_cyan[] = "#22ba91";
+static const char col_cyan[] = "#b88b11";
 static const unsigned int baralpha = 220;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3] = {
