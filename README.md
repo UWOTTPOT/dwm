@@ -10,9 +10,7 @@ ttf-font-awesome
 
 alacritty
 
-picom
-
-thorium-browser-bin (aur)
+firefox
 
 pcmanfm
 
