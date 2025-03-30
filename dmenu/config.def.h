@@ -13,9 +13,9 @@ static const char *prompt = NULL; /* -p  option; prompt to the left of input fie
 static const char *colors[SchemeLast][2] = {
 			/*  fg         bg   */
     [SchemeNorm]	= {"#bbbbbb", "#000000"},
-    [SchemeSel]		= {"#eeeeee", "#4f4e4e"},
-    [SchemeSelHighlight] = {"#eeeeee", "#4f4e4e"},
-    [SchemeNormHighlight] = {"#bbbbbb", "#000000"},
+    [SchemeSel]		= {"#eeeeee", "#000000"},
+    [SchemeSelHighlight] = {"#ffc978", "#376f99"},
+    [SchemeNormHighlight] = {"#ffc978", "#000000"},
     [SchemeOut]		= {"#000000", "#00ffff"},
 };
 
@@ -34,4 +34,4 @@ static unsigned int lines = 12;
 static const char worddelimiters[] = " ";
 
 /* Size of the window border */
-static unsigned int border_width = 1;
+static unsigned int border_width = 0;
