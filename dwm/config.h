@@ -40,7 +40,7 @@ static const Rule rules[] = {
 	{"discord", NULL, NULL, 0, 0, 1},
 	{"Spotify", NULL, NULL, 1 << 7, 1, 0},
 	{"net-runelite-launcher-Launcher", NULL, "RuneLite", 1 << 6, 1, 0},
-	{"wow.exe", NULL, NULL, 0, 0, 0},
+	{"wow.exe", NULL, NULL, 1 << 6, 0, 0},
 };
 
 /* layout(s) */
